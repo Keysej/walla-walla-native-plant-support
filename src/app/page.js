@@ -1,95 +1,85 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+
+import ChatBot from "@/components/ChatBot";
+import { Box, Typography } from "@mui/material";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <Box
+      sx={{
+        minHeight: "100vh",
+        width: "100%",
+        backgroundImage: "url('/6454898130246.image.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        px: 10,
+        py: 5,
+        overflow: "hidden",
+        position: "relative",
+        "&::before": {
+          content: '""',
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: "rgba(144, 169, 147, 0.75)", // Sage green with 75% opacity
+          zIndex: 1
+        }
+      }}
+    >
+      {/* Left side text */}
+      <Box sx={{ 
+        maxWidth: "70%", 
+        position: "relative", 
+        zIndex: 2,
+        background: "linear-gradient(135deg, rgba(255, 255, 255, 0.97) 0%, rgba(144, 169, 147, 0.2) 100%)",
+        padding: "2rem",
+        borderRadius: "16px",
+        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.08)",
+        border: "1px solid rgba(144, 169, 147, 0.3)"
+      }}>
+        <Typography variant="h2" sx={{ 
+          fontWeight: "bold", 
+          mb: 3,
+          fontFamily: "Georgia, serif",
+          color: "#2d3a2d", // Deep sage for better contrast
+          textShadow: "1px 1px 0px rgba(255, 255, 255, 0.5)"
+        }}>
+          Walla Walla Native Plant AI Support
+        </Typography>
+        <Typography variant="h5" sx={{
+          fontFamily: "Georgia, serif",
+          color: "#3c4f3c", // Medium sage for subtitle
+          lineHeight: 1.6
+        }}>
+          Need help with native plants? 🌿 Chat with our PlantPal Bot!
+        </Typography>
+      </Box>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      {/* Right side chatbot */}
+      <Box
+        sx={{
+          background: "linear-gradient(135deg, rgba(255, 255, 255, 0.97) 0%, rgba(144, 169, 147, 0.2) 100%)",
+          borderRadius: "16px",
+          width: 400,
+          height: 600,
+          p: 3,
+          boxShadow: "0 8px 32px rgba(0, 0, 0, 0.08)",
+          display: "flex",
+          flexDirection: "column",
+          overflowY: "auto",
+          position: "relative",
+          zIndex: 2,
+          border: "1px solid rgba(144, 169, 147, 0.3)"
+        }}
+      >
+        <ChatBot />
+      </Box>
+    </Box>
   );
 }
